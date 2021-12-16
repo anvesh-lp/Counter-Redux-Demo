@@ -25,6 +25,21 @@ const counterSlcie = createSlice({
     }
 })
 
+
+const authenticationSlice = createSlice({
+    name: "authentication",
+    initialState: {isAuthenticated: false},
+    reducers: {
+        login(state) {
+            state.isAuthenticated = true
+        },
+        logout(state) {
+            state.isAuthenticated = false
+        }
+    }
+})
+
+
 /*
     const reducerFunction = (existingState = {counter: 0, showCounter: true}, action) => {
     if (action.type === 'inc') return {counter: existingState.counter + 1, showCounter: existingState.showCounter}
@@ -47,9 +62,10 @@ const store = createStore(reducerFunction)
 
 
 const store = configureStore({
-    reducer: counterSlcie.reducer
+    reducer: {counter: counterSlcie.reducer, auth: authenticationSlice.reducer}
 })
 
 export const actions = counterSlcie.actions
+export const authenticationAction = authenticationSlice.actions
 export default store;
 

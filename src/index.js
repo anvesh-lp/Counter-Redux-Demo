@@ -4,6 +4,6 @@ import {Provider} from "react-redux";
 
 import './index.css';
 import App from './App';
-import store from "./store/counter";
+import store from "./store/reduerStore";
 
 ReactDOM.render(<Provider store={store}><App/></Provider>, document.getElementById('root'));
